@@ -7,10 +7,10 @@ var debug = require('debug')('mashed:format:piz');
 var jBinary = require('jbinary');
 
 var format = {
-  'jBinary.all': 'Piz',
+  'jBinary.all': 'piz',
   'jBinary.littleEndian': true,
 
-  Piz: jBinary.Type({
+  piz: jBinary.Type({
     read: function() {
       var self = this;
       var data = {};
@@ -43,8 +43,6 @@ var format = {
           file.binary = this.binary.seek(file.posStart, function() {
             return self.binary.read(['blob', file.length]);
           });
-
-          // some numbers probably dealing with the size and position
 
           data.files.push(file);
         }, this);
